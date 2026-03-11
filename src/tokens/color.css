@@ -1,0 +1,15 @@
+/* Color Pallette */
+:root {
+  --color-bg-base: #0d0f14;
+  --color-bg-surface: #13161e;
+  --color-bg-elevated: #1c2030;
+  --color-border: #2a2f42;
+  --color-primary: #6c63ff;
+  --color-accent: #00d9c0;
+  --color-accent-warn: #f5a623;
+  --color-accent-error: #ff5c5c;
+  --color-accent-success: #4ade80;
+  --color-text-primary: #f0f2ff;
+  --color-text-secondary: #00d9c0;
+  --color-text-muted: #4e5569;
+}

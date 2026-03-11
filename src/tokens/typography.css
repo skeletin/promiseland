@@ -1,0 +1,42 @@
+/* ─── Typography Primitives ─── */
+:root {
+  --font-size-1: 0.8125rem; /* 13px */
+  --font-size-2: 0.875rem; /* 14px */
+  --font-size-3: 0.9375rem; /* 15px */
+  --font-size-4: 1.125rem; /* 18px */
+  --font-size-5: 1.5rem; /* 24px */
+  --font-size-6: 2rem; /* 32px */
+  --font-size-7: 3rem; /* 48px */
+
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --font-family-sans: system-ui, sans-serif;
+  --font-family-mono: "Fira Code", monospace;
+}
+
+/* ─── Semantic Typography  ─── */
+:root {
+  --font-size-display: var(--font-size-7);
+  --font-weight-display: var(--font-weight-bold);
+
+  --font-size-heading-1: var(--font-size-6);
+  --font-weight-heading-1: var(--font-weight-bold);
+
+  --font-size-heading-2: var(--font-size-5);
+  --font-weight-heading-2: var(--font-weight-semibold);
+
+  --font-size-heading-3: var(--font-size-4);
+  --font-weight-heading-3: var(--font-weight-semibold);
+
+  --font-size-body: var(--font-size-3);
+  --font-weight-body: var(--font-weight-regular);
+
+  --font-size-small: var(--font-size-1);
+  --font-weight-small: var(--font-weight-regular);
+
+  --font-size-code: var(--font-size-2);
+  --font-weight-code: var(--font-weight-regular);
+  --font-family-code: var(--font-family-mono);
+}
