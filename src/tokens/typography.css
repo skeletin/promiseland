@@ -14,6 +14,7 @@
 
   --font-family-sans: system-ui, sans-serif;
   --font-family-mono: "Fira Code", monospace;
+  --font-family-inter: "Inter Variable", Inter, sans-serif;
 }
 
 /* ─── Semantic Typography  ─── */
@@ -32,6 +33,7 @@
 
   --font-size-body: var(--font-size-3);
   --font-weight-body: var(--font-weight-regular);
+  --font-family-body: var(--font-family-inter);
 
   --font-size-small: var(--font-size-1);
   --font-weight-small: var(--font-weight-regular);

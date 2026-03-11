@@ -59,6 +59,7 @@
               "id": "ORcoG",
               "name": "Color Palette",
               "width": "fill_container",
+              "height": 452,
               "layout": "vertical",
               "gap": 16,
               "children": [
@@ -1496,6 +1497,7 @@
                           "type": "text",
                           "id": "yDE6u",
                           "name": "btnPLabel",
+                          "rotation": -0.4242008408613485,
                           "fill": "#FFFFFF",
                           "content": "Run",
                           "fontFamily": "Inter",
