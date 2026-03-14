@@ -31,7 +31,7 @@ export class PlProgressBar extends LitElement {
   ];
 
   render() {
-    const clamped = Math.min(100, Math.max(0, this.progress)); // ✅
+    const clamped = Math.min(100, Math.max(0, this.progress));
 
     return html`
       <div class="progress-wrapper">
