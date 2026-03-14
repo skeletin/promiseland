@@ -16,7 +16,7 @@ export class PlButton extends LitElement {
   size: PlButtonProps["size"] = "medium";
 
   @property({ type: Boolean, reflect: true })
-  disabled: boolean = false;
+  disabled: PlButtonProps["disabled"] = false;
 
   static styles = [
     css`

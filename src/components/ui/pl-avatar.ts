@@ -12,7 +12,7 @@ export class PlAvatar extends LitElement {
   size: PlAvatarProps["size"] = "medium";
 
   @property({ type: String })
-  initials: PlAvatarProps["initials"] = "JS";
+  initials: PlAvatarProps["initials"] = "";
 
   static styles = [
     css`
@@ -21,6 +21,9 @@ export class PlAvatar extends LitElement {
       }
 
       .avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background: var(--color-primary);
         border-radius: var(--radius-full);
         color: #ffffff;

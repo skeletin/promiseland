@@ -1,5 +1,6 @@
 import { LitElement, html, css } from "lit";
 import { customElement } from "lit/decorators.js";
+import "../../ui/pl-progress-bar";
 
 @customElement("home-page")
 export class HomePage extends LitElement {
@@ -12,7 +13,7 @@ export class HomePage extends LitElement {
   ];
 
   render() {
-    return html`<div>home page</div> `;
+    return html`<div></div> `;
   }
 }
 

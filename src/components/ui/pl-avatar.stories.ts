@@ -7,7 +7,8 @@ type Story = StoryObj;
 const meta = {
   title: "UI/PlAvatar",
   component: "pl-avatar",
-  render: ({ size }) => html`<pl-avatar size=${size}>JS</pl-avatar>`,
+  render: ({ size, initials }) =>
+    html`<pl-avatar size=${size} initials=${initials}></pl-avatar>`,
 } satisfies Meta;
 
 export default meta;
@@ -15,17 +16,20 @@ export default meta;
 export const Small: Story = {
   args: {
     size: "small",
+    initials: "JS",
   },
 };
 
 export const Medium: Story = {
   args: {
     size: "medium",
+    initials: "JS",
   },
 };
 
 export const Large: Story = {
   args: {
     size: "large",
+    initials: "JS",
   },
 };
