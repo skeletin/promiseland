@@ -2352,6 +2352,7 @@
                           "type": "text",
                           "id": "oAuZA",
                           "name": "avLgInit",
+                          "rotation": 0.029539921667682153,
                           "fill": "#FFFFFF",
                           "content": "JS",
                           "fontFamily": "Inter",
@@ -10583,8 +10584,8 @@
                   "name": "profAvatar",
                   "descendants": {
                     "oAuZA": {
-                      "x": 15.5,
-                      "y": 16
+                      "x": 15.49381483486799,
+                      "y": 16.006446205755687
                     }
                   }
                 },
