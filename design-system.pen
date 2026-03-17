@@ -2519,6 +2519,7 @@
                   "id": "GAgDE",
                   "name": "Tooltip",
                   "reusable": true,
+                  "rotation": 0.062432489181854886,
                   "fill": "$--color-bg-elevated",
                   "cornerRadius": "$--radius-sm",
                   "effect": {
@@ -10585,7 +10586,7 @@
                   "descendants": {
                     "oAuZA": {
                       "x": 15.49381483486799,
-                      "y": 16.006446205755694
+                      "y": 16.006446205755687
                     }
                   }
                 },
