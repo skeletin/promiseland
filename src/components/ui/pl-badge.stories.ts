@@ -8,16 +8,24 @@ const meta = {
   title: "UI/PlBadge",
   component: "pl-badge",
   render: ({ variant }) =>
-    html`<pl-badge variant=${variant}> ${variant} </pl-badge>`,
+    html`<pl-badge variant=${variant}>${variant}</pl-badge>`,
+  argTypes: {
+    variant: {
+      control: { type: "select" },
+      options: [
+        "beginner",
+        "intermediate",
+        "advanced",
+        "not started",
+        "in progress",
+        "completed",
+        "locked",
+      ],
+    },
+  },
 } satisfies Meta;
 
 export default meta;
-
-export const Default: Story = {
-  args: {
-    variant: "default",
-  },
-};
 
 export const Beginner: Story = {
   args: {
@@ -59,6 +67,7 @@ export const XP: Story = {
     variant: "xp",
     slot: "+50 XP",
   },
+
   render: ({ variant, slot }) =>
     html`<pl-badge variant=${variant}>${slot}</pl-badge>`,
 };

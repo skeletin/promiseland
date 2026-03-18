@@ -4,11 +4,11 @@ import "./lucide-icon";
 
 export interface PlBadgeProps {
   variant:
-    | "default"
+    | "not started"
     | "beginner"
     | "intermediate"
     | "advanced"
-    | "in-progress"
+    | "in progress"
     | "completed"
     | "locked"
     | "xp";
@@ -17,7 +17,7 @@ export interface PlBadgeProps {
 @customElement("pl-badge")
 export class PlBadge extends LitElement {
   @property({ type: String })
-  variant: PlBadgeProps["variant"] = "default";
+  variant: PlBadgeProps["variant"] = "not started";
 
   static styles = [
     css`
@@ -35,11 +35,6 @@ export class PlBadge extends LitElement {
         font-family: var(--font-family-body);
         font-size: var(--font-size-small);
         font-weight: var(--font-weight-semibold);
-      }
-
-      :host([variant="default"]) .badge {
-        background: transparent;
-        color: var(--color-text-secondary);
       }
 
       :host([variant="beginner"]) .badge {
@@ -69,7 +64,7 @@ export class PlBadge extends LitElement {
 
       :host([variant="completed"]) .badge {
         background: #4ade8022;
-        color: var(--color-accent-succes);
+        color: var(--color-accent-success);
       }
 
       :host([variant="xp"]) .badge {
@@ -94,7 +89,7 @@ export class PlBadge extends LitElement {
   }
 
   render() {
-    return html` <span id="naw" class="badge">
+    return html` <span class="badge">
       ${this.getIcon()}
       <slot></slot>
     </span>`;
