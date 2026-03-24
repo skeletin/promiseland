@@ -1,0 +1,49 @@
+.pl-toggle {
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-full);
+  position: relative;
+  width: 2.75rem;
+  height: 1.5rem;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.pl-toggle__track {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: inherit;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.pl-toggle__thumb {
+  position: relative;
+  z-index: 1;
+  transition:
+    transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  background: var(--color-text-muted);
+  border-radius: var(--radius-full);
+  height: 1.25rem;
+  width: 1.25rem;
+  margin-left: 2px;
+  transform: translateX(0);
+}
+
+.pl-toggle--checked .pl-toggle__thumb {
+  background: var(--color-on-primary);
+  transform: translateX(20px);
+}
+
+.pl-toggle--checked .pl-toggle__track {
+  background-color: var(--color-primary);
+  border-color: transparent;
+}

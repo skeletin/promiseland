@@ -1,0 +1,10 @@
+.pl-tooltip {
+  display: inline-block;
+  background: var(--color-bg-elevated);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-body);
+  padding: 0.5rem 0.875rem;
+  color: var(--color-text-primary);
+}

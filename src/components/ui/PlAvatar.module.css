@@ -1,0 +1,28 @@
+.pl-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+  color: var(--color-on-primary);
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-family-inter);
+}
+
+.pl-avatar--sm {
+  font-size: 0.75rem;
+  height: 2rem;
+  width: 2rem;
+}
+
+.pl-avatar--md {
+  font-size: 0.875rem;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.pl-avatar--lg {
+  font-size: 1.25rem;
+  height: 3.5rem;
+  width: 3.5rem;
+}

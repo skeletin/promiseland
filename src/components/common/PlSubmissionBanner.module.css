@@ -1,0 +1,43 @@
+.pl-submission-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  width: 37.5rem;
+  max-width: 100%;
+  padding: 0.875rem 1.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+}
+
+.pl-submission-banner__text {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-semibold);
+}
+
+.pl-submission-banner--pending {
+  background: #f5a62315;
+  border-color: #f5a62344;
+}
+
+.pl-submission-banner--pending .pl-submission-banner__text {
+  color: var(--color-accent-warn);
+}
+
+.pl-submission-banner--passed {
+  background: #4ade8015;
+  border-color: #4ade8044;
+}
+
+.pl-submission-banner--passed .pl-submission-banner__text {
+  color: var(--color-accent-success);
+}
+
+.pl-submission-banner--failed {
+  background: #ff5c5c15;
+  border-color: #ff5c5c44;
+}
+
+.pl-submission-banner--failed .pl-submission-banner__text {
+  color: var(--color-accent-error);
+}

@@ -1,0 +1,53 @@
+.pl-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 1.625rem;
+  padding: 0 0.625rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+}
+
+.pl-badge--beginner {
+  background: #00d9c022;
+  color: var(--color-accent);
+}
+
+.pl-badge--intermediate {
+  background: #f5a62322;
+  color: var(--color-accent-warn);
+}
+
+.pl-badge--advanced {
+  background: #ff5c5c22;
+  color: var(--color-accent-error);
+}
+
+.pl-badge--not-started {
+  background: var(--color-bg-elevated);
+  color: var(--color-text-secondary);
+}
+
+.pl-badge--in-progress {
+  background: #4f46e522;
+  color: var(--color-primary);
+}
+
+.pl-badge--completed {
+  background: #4ade8022;
+  color: var(--color-accent-success);
+}
+
+.pl-badge--xp {
+  background: #4f46e522;
+  color: var(--color-primary);
+  box-shadow: 0 0 16px 0.35px #4f46e559;
+}
+
+.pl-badge--locked {
+  background: var(--color-bg-elevated);
+  color: var(--color-text-muted);
+}

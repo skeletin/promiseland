@@ -1,0 +1,28 @@
+.pl-test-result {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  width: 37.5rem;
+  max-width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #4ade8033;
+  border-radius: var(--radius-xs);
+  background: var(--color-bg-surface);
+}
+
+.pl-test-result--fail {
+  border-color: #ff5c5c33;
+}
+
+.pl-test-result__label {
+  flex: 1;
+  color: var(--color-text-primary);
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-1);
+}
+
+.pl-test-result__duration {
+  color: var(--color-text-muted);
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-small);
+}

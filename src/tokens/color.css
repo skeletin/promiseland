@@ -4,7 +4,12 @@
   --color-bg-surface: #13161e;
   --color-bg-elevated: #1c2030;
   --color-border: #2a2f42;
-  --color-primary: #6c63ff;
+  /* Darker than legacy #6c63ff so #fff / UI text meets WCAG AA 4.5:1 on primary surfaces */
+  --color-primary: #4f46e5;
+  --color-primary-hover: #5b52f0;
+  --color-on-primary: #ffffff;
+  /* Lighter primary tint for text/icons on dark UI (AA vs --color-bg-base); not for fills */
+  --color-primary-text: #a5b4fc;
   --color-accent: #00d9c0;
   --color-accent-warn: #f5a623;
   --color-accent-error: #ff5c5c;

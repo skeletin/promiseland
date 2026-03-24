@@ -1,0 +1,51 @@
+.pl-btn {
+  align-items: center;
+  border: none;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  display: flex;
+  font-size: var(--font-size-code);
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-family-body);
+  justify-content: center;
+}
+
+.pl-btn--ghost {
+  background: transparent;
+  color: var(--color-text-secondary);
+}
+
+.pl-btn--primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  box-shadow: 0 0 20px #4f46e559;
+}
+
+.pl-btn--secondary {
+  background: var(--color-bg-elevated);
+  box-shadow: inset 0 0 0 1px var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.pl-btn--danger {
+  background: #ff5c5c22;
+  box-shadow: inset 0 0 0 1px var(--color-accent-error);
+  color: var(--color-accent-error);
+}
+
+.pl-btn--md {
+  height: 2.75rem;
+  padding: 0 1.5rem;
+}
+
+.pl-btn--sm {
+  height: 2.25rem;
+  padding: 0 1rem;
+}
+
+.pl-btn--disabled {
+  background: var(--color-bg-elevated);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  box-shadow: none;
+}

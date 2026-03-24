@@ -1,0 +1,7 @@
+.pl-loader {
+  display: block;
+  height: 2rem;
+  width: 2rem;
+  border: 3px solid var(--color-primary);
+  border-radius: var(--radius-full);
+}

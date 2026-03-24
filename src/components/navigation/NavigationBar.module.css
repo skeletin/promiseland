@@ -1,0 +1,18 @@
+.pl-navigation-bar {
+  display: flex;
+  padding: var(--spacing-xs);
+  width: 100%;
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--spacing-base);
+}
+
+.pl-navigation-bar__link {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+}
+
+.pl-navigation-bar__link:hover {
+  color: var(--color-text-primary);
+}

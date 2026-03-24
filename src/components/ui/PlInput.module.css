@@ -1,0 +1,65 @@
+.pl-input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 20rem;
+  font-family: var(--font-family-body);
+}
+
+.pl-input__label {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+}
+
+.pl-input:focus-within:not(.pl-input--invalid) .pl-input__label {
+  color: var(--color-primary-text);
+}
+
+.pl-input--invalid .pl-input__label {
+  color: var(--color-accent-error);
+}
+
+.pl-input__field {
+  box-sizing: border-box;
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-xs);
+  color: var(--color-text-primary);
+  height: 2.75rem; /* 44px */
+  padding: 0 var(--spacing-base);
+  border: 1px solid var(--color-border);
+  outline: none;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-body);
+  font-size: var(--font-size-2);
+}
+
+/* Placeholder: set --pl-input-placeholder-color on an ancestor to override */
+.pl-input__field::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1; /* Firefox can dim placeholders unless opacity is set */
+}
+
+.pl-input__field--elevated {
+  background: var(--color-bg-elevated);
+}
+
+.pl-input__field:focus {
+  outline: 1px solid var(--color-primary);
+  box-shadow: 0 0 12px #4f46e544;
+}
+
+.pl-input__field--error {
+  border-color: var(--color-accent-error);
+}
+
+.pl-input__field--error:focus {
+  outline: 1px solid var(--color-accent-error);
+  box-shadow: 0 0 12px #ff5c5c44;
+}
+
+.pl-input__error {
+  color: var(--color-accent-error);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-regular);
+}
