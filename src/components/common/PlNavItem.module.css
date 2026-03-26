@@ -3,8 +3,8 @@
   align-items: center;
   gap: var(--spacing-md);
   width: 13.75rem;
-  height: 2.5rem;
-  padding: 0 1rem;
+  height: var(--control-height-md);
+  padding: 0 var(--spacing-base);
   border: 0;
   border-radius: var(--radius-xs);
   background: transparent;

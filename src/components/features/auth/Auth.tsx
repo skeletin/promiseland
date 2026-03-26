@@ -1,12 +1,22 @@
 import { Code } from "lucide-react";
 import { GithubMarkIcon } from "../../icons/GithubMarkIcon";
 import styles from "./Auth.module.css";
-import { useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { PlTabBar } from "../../common/PlTabBar";
 import { PlInput } from "../../ui/PlInput";
 import { PlButton } from "../../ui/PlButton";
 import AuthFormContext from "./AuthFormContext";
 import useAuthForm from "./useAuthForm";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { useForm, Controller, type SubmitHandler } from "react-hook-form";
+import {
+  loginSchema,
+  registerSchema,
+  type NewUser,
+  type UserCredentials,
+} from "./authSchemas";
+import { zodResolver } from "@hookform/resolvers/zod";
+import api from "@/network/api";
 
 type AuthFormProps = {
   children: ReactNode;
@@ -26,11 +36,53 @@ export default function Auth() {
 }
 
 function AuthForm({ children }: AuthFormProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const mode = searchParams.get("mode");
+  const index = mode ? (mode === "login" ? 0 : mode === "register" ? 1 : 0) : 0;
+
+  const defaultValues = (): UserCredentials | NewUser => {
+    if (mode === "register") {
+      return {
+        email: "",
+        username: "",
+        password: "",
+        passwordConfirmation: "",
+      };
+    }
+    return { email: "", password: "" };
+  };
+
+  const { handleSubmit, control, reset } = useForm<UserCredentials | NewUser>({
+    defaultValues: defaultValues(),
+    resolver: zodResolver(mode === "register" ? registerSchema : loginSchema),
+  });
+
+  const handleSelectTab = (index: number) => {
+    if (index === 0) setSearchParams({ mode: "login" });
+    if (index === 1) setSearchParams({ mode: "register" });
+    reset();
+  };
+
+  const onSubmit: SubmitHandler<NewUser | UserCredentials> = (data) => {
+    if (mode === "register" && "username" in data) {
+      void api.auth.register(data);
+    }
+
+    if (mode === "login" && !("username" in data)) {
+      void api.auth.login(data);
+    }
+
+    navigate("/");
+  };
 
   return (
-    <AuthFormContext.Provider value={{ activeIndex, setActiveIndex }}>
-      <form className={styles["auth-form"]}>{children}</form>
+    <AuthFormContext.Provider
+      value={{ activeIndex: index, handleSelectTab, control }}
+    >
+      <form onSubmit={handleSubmit(onSubmit)} className={styles["auth-form"]}>
+        {children}
+      </form>
     </AuthFormContext.Provider>
   );
 }
@@ -48,12 +100,12 @@ function Header() {
 }
 
 function TabBar() {
-  const { activeIndex, setActiveIndex } = useAuthForm();
+  const { activeIndex, handleSelectTab } = useAuthForm();
   return (
     <PlTabBar
       tabs={["Log in", "Register"]}
       activeIndex={activeIndex}
-      onSelectTab={setActiveIndex}
+      onSelectTab={handleSelectTab}
     />
   );
 }
@@ -70,19 +122,38 @@ function Fields() {
 }
 
 function LoginFields() {
+  const { control } = useAuthForm();
   return (
     <>
-      <PlInput
+      <Controller
         name="email"
-        type="email"
-        variant="elevated"
-        placeholder="you@example.com"
+        control={control}
+        render={({ field, fieldState }) => (
+          <PlInput
+            type="email"
+            variant="elevated"
+            placeholder="you@example.com"
+            required
+            invalid={fieldState.invalid}
+            errorMessage={fieldState.error && fieldState.error.message}
+            {...field}
+          />
+        )}
       />
-      <PlInput
+      <Controller
         name="password"
-        type="password"
-        variant="elevated"
-        placeholder="••••••••"
+        control={control}
+        render={({ field, fieldState }) => (
+          <PlInput
+            type="password"
+            variant="elevated"
+            placeholder="••••••••"
+            required
+            invalid={fieldState.invalid}
+            errorMessage={fieldState.error && fieldState.error.message}
+            {...field}
+          />
+        )}
       />
       <span className={styles["auth-form__password-reset-link"]}>
         Forgot Password?
@@ -92,43 +163,80 @@ function LoginFields() {
 }
 
 function RegisterFields() {
+  const { control } = useAuthForm();
   return (
     <>
-      <PlInput
+      <Controller
         name="email"
-        type="email"
-        variant="elevated"
-        placeholder="you@example.com"
+        control={control}
+        render={({ field, fieldState }) => (
+          <PlInput
+            type="email"
+            variant="elevated"
+            placeholder="you@example.com"
+            required
+            invalid={fieldState.invalid}
+            errorMessage={fieldState.error && fieldState.error.message}
+            {...field}
+          />
+        )}
       />
-      <PlInput
+      <Controller
         name="username"
-        type="text"
-        variant="elevated"
-        placeholder="username"
+        control={control}
+        render={({ field, fieldState }) => (
+          <PlInput
+            type="text"
+            variant="elevated"
+            placeholder="username"
+            required
+            invalid={fieldState.invalid}
+            errorMessage={fieldState.error && fieldState.error.message}
+            {...field}
+          />
+        )}
       />
-      <PlInput
+      <Controller
         name="password"
-        type="password"
-        variant="elevated"
-        placeholder="••••••••"
+        control={control}
+        render={({ field, fieldState }) => (
+          <PlInput
+            type="password"
+            variant="elevated"
+            placeholder="••••••••"
+            required
+            invalid={fieldState.invalid}
+            errorMessage={fieldState.error && fieldState.error.message}
+            {...field}
+          />
+        )}
       />
-      <PlInput
-        label="Password Confirmation"
+      <Controller
         name="passwordConfirmation"
-        type="password"
-        variant="elevated"
-        placeholder="••••••••"
+        control={control}
+        render={({ field, fieldState }) => (
+          <PlInput
+            label="Password Confirmation"
+            type="password"
+            variant="elevated"
+            placeholder="••••••••"
+            required
+            invalid={fieldState.invalid}
+            errorMessage={fieldState.error && fieldState.error.message}
+            {...field}
+          />
+        )}
       />
     </>
   );
 }
 
 function Controls() {
-  console.log("Controls Renders");
+  const { activeIndex } = useAuthForm();
   return (
     <div className={styles["auth-form__controls"]}>
       <PlButton variant="primary" size="md" type="submit">
-        Log in
+        {activeIndex === 0 ? "Log in" : "Create Account"}
       </PlButton>
       <div className={styles["auth-form__divider"]} role="separator">
         <span className={styles["auth-form__divider-line"]} aria-hidden />

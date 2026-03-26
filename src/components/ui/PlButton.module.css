@@ -34,13 +34,13 @@
 }
 
 .pl-btn--md {
-  height: 2.75rem;
-  padding: 0 1.5rem;
+  height: var(--control-height-md);
+  padding: 0 var(--spacing-lg);
 }
 
 .pl-btn--sm {
-  height: 2.25rem;
-  padding: 0 1rem;
+  height: var(--control-height-sm);
+  padding: 0 var(--spacing-base);
 }
 
 .pl-btn--disabled {

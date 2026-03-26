@@ -1,0 +1,24 @@
+/* ─── Layout & density (screens) ───
+ * Pen/canvas frames often use larger fixed sizes than product UIs. These tokens
+ * drive interactive controls and form rhythm for real viewports. Colors/fonts
+ * stay in typography/color; spacing primitives stay in spacing.css.
+ */
+:root {
+  /* Interactive control heights — keep inputs and primary actions aligned */
+  --control-height-sm: 2.25rem; /* 36px */
+  --control-height-md: 2.5rem; /* 40px */
+  --control-height-lg: 2.75rem; /* 44px — optional touch / emphasis */
+
+  --control-padding-inline: var(--spacing-base);
+
+  /* Forms & stacked fields */
+  --input-label-gap: var(--space-2); /* 8px label → field */
+  --form-stack-gap: var(--space-3); /* 12px between fields */
+  --form-section-gap: var(--space-5); /* 24px between major blocks */
+  --form-shell-padding: var(--space-5); /* 24px card padding */
+  --form-max-width: 26.25rem; /* 420px — auth / narrow panels */
+
+  /* Full-screen shells (auth, empty states) */
+  --shell-viewport-padding-y: clamp(var(--space-3), 3dvh, var(--space-6));
+  --shell-viewport-padding-x: clamp(var(--space-4), 4vw, var(--space-6));
+}

@@ -7,12 +7,13 @@ export type PlInputProps = {
   label?: string;
   value?: string;
   defaultValue?: string;
-  onChange?: (value: string) => void;
+  onChange: (value: string) => void;
   type?: string;
   placeholder?: string;
   invalid?: boolean;
   errorMessage?: string;
   variant?: "elevated" | "surface";
+  required?: boolean;
 };
 
 export function PlInput({
@@ -26,6 +27,7 @@ export function PlInput({
   invalid = false,
   errorMessage = "",
   variant = "surface",
+  required = false,
 }: PlInputProps) {
   const id = useId();
   const [internal, setInternal] = useState(defaultValue);
@@ -58,10 +60,11 @@ export function PlInput({
         type={type}
         aria-invalid={invalid}
         onChange={(e) => {
-          const v = e.target.value;
-          onChange?.(v);
-          if (!controlled) setInternal(v);
+          const { value } = e.target;
+          onChange(value);
+          if (!controlled) setInternal(value);
         }}
+        required={required}
       />
       {invalid && errorMessage ? (
         <span className={styles["pl-input__error"]}>{errorMessage}</span>

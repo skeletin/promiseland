@@ -1,8 +1,9 @@
 .pl-input {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  width: 20rem;
+  gap: var(--input-label-gap);
+  width: 100%;
+  min-width: 0;
   font-family: var(--font-family-body);
 }
 
@@ -25,8 +26,8 @@
   background: var(--color-bg-surface);
   border-radius: var(--radius-xs);
   color: var(--color-text-primary);
-  height: 2.75rem; /* 44px */
-  padding: 0 var(--spacing-base);
+  height: var(--control-height-md);
+  padding: 0 var(--control-padding-inline);
   border: 1px solid var(--color-border);
   outline: none;
   font-family: var(--font-family-body);

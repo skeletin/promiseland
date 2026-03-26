@@ -15,11 +15,15 @@
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",
+    "@hookform/resolvers": "^5.2.2",
+    "@tanstack/react-query": "^5.95.2",
     "clsx": "^2.1.1",
     "lucide-react": "^0.577.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.9.0"
+    "react-hook-form": "^7.72.0",
+    "react-router-dom": "^7.9.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.0.1",
@@ -27,6 +31,7 @@
     "@storybook/addon-docs": "^10.2.17",
     "@storybook/addon-vitest": "^10.2.17",
     "@storybook/react-vite": "^10.2.17",
+    "@types/node": "^25.5.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^5.0.0",

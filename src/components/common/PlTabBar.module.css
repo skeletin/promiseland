@@ -9,8 +9,8 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  height: 2.5rem; /* 40px */
-  padding: 0 1.25rem; /* 0px 20px */
+  height: var(--control-height-md);
+  padding: 0 var(--spacing-lg);
   border: 0;
   border-bottom: 2px solid transparent;
   background: transparent;
