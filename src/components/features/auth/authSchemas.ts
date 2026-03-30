@@ -10,7 +10,7 @@ export const registerSchema = z
     email: z.email("Invalid email"),
     username: z.string().min(3, "Username must be at least 3 characters"),
     password: z.string().min(8, "Password must be at least 8 characters"),
-    passwordConfirmation: z.string().optional(),
+    passwordConfirmation: z.string(),
   })
   .refine((data) => data.password === data.passwordConfirmation, {
     message: "Passwords don't match",

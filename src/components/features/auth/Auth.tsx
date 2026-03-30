@@ -17,6 +17,7 @@ import {
 } from "./authSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import api from "@/network/api";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 type AuthFormProps = {
   children: ReactNode;
@@ -40,22 +41,39 @@ function AuthForm({ children }: AuthFormProps) {
   const navigate = useNavigate();
   const mode = searchParams.get("mode");
   const index = mode ? (mode === "login" ? 0 : mode === "register" ? 1 : 0) : 0;
+  const {
+    auth: { register, login },
+  } = api;
+  const queryClient = useQueryClient();
 
-  const defaultValues = (): UserCredentials | NewUser => {
+  const defaultValues = (): NewUser | UserCredentials => {
     if (mode === "register") {
       return {
         email: "",
         username: "",
         password: "",
         passwordConfirmation: "",
-      };
+      } satisfies NewUser;
     }
-    return { email: "", password: "" };
+    return { email: "", password: "" } satisfies UserCredentials;
   };
 
   const { handleSubmit, control, reset } = useForm<UserCredentials | NewUser>({
     defaultValues: defaultValues(),
     resolver: zodResolver(mode === "register" ? registerSchema : loginSchema),
+  });
+
+  const { mutate: mutateRegister } = useMutation({
+    mutationFn: register,
+    onSuccess: () => navigate("/onboarding", { replace: true }),
+  });
+
+  const { mutate: mutateLogin } = useMutation({
+    mutationFn: login,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["auth-user"] });
+      navigate("/learn", { replace: true });
+    },
   });
 
   const handleSelectTab = (index: number) => {
@@ -65,15 +83,8 @@ function AuthForm({ children }: AuthFormProps) {
   };
 
   const onSubmit: SubmitHandler<NewUser | UserCredentials> = (data) => {
-    if (mode === "register" && "username" in data) {
-      void api.auth.register(data);
-    }
-
-    if (mode === "login" && !("username" in data)) {
-      void api.auth.login(data);
-    }
-
-    navigate("/");
+    if (mode === "register") mutateRegister(data as NewUser);
+    if (mode === "login") mutateLogin(data as UserCredentials);
   };
 
   return (

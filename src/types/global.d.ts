@@ -1,4 +1,5 @@
 import { UserSchema } from "@/schemas/userSchema";
+import userProfileSchema from "@/schemas/userProfileSchema";
 /**
  * Ambient global types. This file must be a module (`export {}`) so `declare global` merges correctly.
  *
@@ -6,6 +7,9 @@ import { UserSchema } from "@/schemas/userSchema";
  */
 declare global {
   type User = z.infer<typeof UserSchema>;
+  type UserProfile = z.infer<typeof userProfileSchema>;
+
+  type ExperienceLevel = "unknown" | "beginner" | "intermediate" | "advanced";
 }
 
 export {};

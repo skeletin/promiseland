@@ -9,6 +9,7 @@ export interface PlButtonProps {
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
   children: ReactNode;
   type?: "button" | "submit" | "reset";
+  key?: React.Key | null;
 }
 
 export function PlButton({
@@ -18,9 +19,11 @@ export function PlButton({
   onClick,
   children,
   type = "button",
+  key = null,
 }: PlButtonProps) {
   return (
     <button
+      key={key}
       type={type}
       className={clsx(
         styles["pl-btn"],

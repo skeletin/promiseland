@@ -1,0 +1,10 @@
+import { z } from "zod";
+
+const userProfileSchema = z.object({
+  id: z.uuid(),
+  displayName: z.nullable(z.string()),
+  avatarUrl: z.nullable(z.string()),
+  experienceLevel: z.string(),
+});
+
+export default userProfileSchema;

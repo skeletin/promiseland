@@ -6,5 +6,120 @@
   width: 100%;
   min-height: 100dvh;
   box-sizing: border-box;
-  padding: var(--shell-viewport-padding-y) var(--shell-viewport-padding-x);
+  padding: 0;
+}
+
+.onboarding-card {
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-md); /* 16px */
+  box-shadow: 0 0 48px 0 #00000066;
+  outline: 1px solid var(--color-border);
+  width: 100%;
+  max-width: 26.25rem; /* 420px */
+  padding: 2.5rem; /* 40px */
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.onboarding-kicker {
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.onboarding-title {
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.onboarding-subtitle {
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.onboarding-label {
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.experience-row {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  width: 100%;
+}
+
+.experience-option {
+  flex: 1;
+  height: 44px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background: #1c2030;
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-body);
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.experience-option--selected {
+  background: #4f46e515;
+  border-color: #4f46e5;
+  color: #4f46e5;
+  font-weight: 600;
+}
+
+.onboarding-helper {
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-small);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.onboarding-error {
+  margin: 0;
+  color: var(--color-accent-error);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-small);
+  font-weight: 400;
+}
+
+.onboarding-continue {
+  height: 44px;
+  width: 100%;
+  border-radius: 6px;
+  border: none;
+  background: var(--color-primary);
+  color: #ffffff;
+  cursor: pointer;
+  font-family: var(--font-family-body);
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 0 20px #4f46e559;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.onboarding-continue:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
