@@ -3,13 +3,14 @@ import type {
   UserCredentials,
 } from "@/components/features/auth/authSchemas";
 import { API } from "@/constants";
+import InvalidDataError from "@/errors/invalidDataError";
 import ServerError from "@/errors/serverError";
-import UnauthorizedError from "@/errors/unauthorizedErro";
+import UnauthorizedError from "@/errors/unauthorizedError";
 import ValidationError from "@/errors/validationError";
 import { UserSchema } from "@/schemas/userSchema";
 
 export default {
-  async register(data: NewUser): Promise<User> {
+  async register(data: NewUser) {
     const { passwordConfirmation, ...newUser } = data;
     const res = await fetch(API + "/register", {
       method: "POST",
@@ -22,11 +23,9 @@ export default {
 
     if (res.status === 422) throw new ValidationError("Invalid User Data");
     if (res.status === 500) throw new ServerError();
-
-    return await res.json();
   },
 
-  async login(userCredentials: UserCredentials): Promise<User> {
+  async login(userCredentials: UserCredentials) {
     const res = await fetch(API + "/login", {
       method: "POST",
       headers: {
@@ -39,9 +38,8 @@ export default {
     if (res.status === 401)
       throw new UnauthorizedError("Invalid username/password");
     if (res.status === 500) throw new ServerError();
-
-    return await res.json();
   },
+
   async getMe(): Promise<User> {
     const res = await fetch(API + "/me", {
       credentials: "include",
@@ -51,6 +49,8 @@ export default {
     if (res.status === 500) throw new ServerError();
 
     const data = await res.json();
-    return UserSchema.parse(data);
+    const { success, data: userData } = UserSchema.safeParse(data);
+    if (!success) throw new InvalidDataError();
+    return userData;
   },
 };

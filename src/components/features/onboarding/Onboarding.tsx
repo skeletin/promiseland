@@ -21,7 +21,7 @@ export default function Onboarding() {
   const [selected, setSelected] = useState<ExperienceChoice | null>(null);
   const { mutate, isError, isPending } = useMutation({
     mutationFn: api.userProfile.update,
-    onSuccess: () => navigate("/learn", { replace: true }),
+    onSuccess: () => navigate("/dashboard", { replace: true }),
   });
 
   return (
@@ -72,7 +72,6 @@ export default function Onboarding() {
           onClick={() =>
             mutate({
               experienceLevel: selected ?? "unknown",
-              registerOnboardingCompleted: true,
             })
           }
           disabled={isPending}

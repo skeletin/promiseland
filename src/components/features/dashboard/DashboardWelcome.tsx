@@ -6,7 +6,9 @@ import styles from "./Dashboard.module.css";
 
 export function DashboardWelcome() {
   const { user } = useAuth();
-  const name = user?.username?.trim() || "there";
+  const userProfile = user?.userProfile!!;
+
+  const name = user?.username || "there";
 
   return (
     <header className={styles["dashboard-welcome"]}>
@@ -19,11 +21,13 @@ export function DashboardWelcome() {
         </p>
       </div>
       <div className={styles["dashboard-welcome__right"]}>
-        <div className={styles["dashboard-welcome__streak"]}>
-          <Flame size={16} aria-hidden strokeWidth={2} />
-          <span>7 day streak</span>
-        </div>
-        <PlLevelPill level={8} xp={1240} />
+        {userProfile?.dayStreak > 0 ? (
+          <div className={styles["dashboard-welcome__streak"]}>
+            <Flame size={16} aria-hidden strokeWidth={2} />
+            <span>{userProfile?.dayStreak} day streak</span>
+          </div>
+        ) : null}
+        <PlLevelPill level={userProfile?.level} xp={userProfile?.xp} />
       </div>
     </header>
   );

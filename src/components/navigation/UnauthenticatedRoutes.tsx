@@ -4,8 +4,8 @@ import useAuth from "../../hooks/useAuth";
 const UnauthenticatedRoutes = () => {
   const { isAuthenticated } = useAuth();
 
-  // If Unauthenticated, render child routes (via <Outlet />), otherwise navigate to /learn
-  return !isAuthenticated ? <Outlet /> : <Navigate to="/learn" replace />;
+  // If unauthenticated, render child routes; otherwise go to the app shell (dashboard).
+  return !isAuthenticated ? <Outlet /> : <Navigate to="/dashboard" replace />;
 };
 
 export default UnauthenticatedRoutes;

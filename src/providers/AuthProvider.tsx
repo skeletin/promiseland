@@ -20,7 +20,5 @@ export default function AuthProvider({ children }: AuthProviderProps) {
     isLoading,
   };
 
-  console.log("Authenticated:" + value.isAuthenticated);
-
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

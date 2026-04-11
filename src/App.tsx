@@ -5,6 +5,7 @@ import Onboarding from "./components/features/onboarding/Onboarding";
 import AuthenticatedRoutes from "./components/navigation/AuthenticatedRoutes";
 import UnauthenticatedRoutes from "./components/navigation/UnauthenticatedRoutes";
 import Dashboard from "./components/features/dashboard/Dashboard";
+import Learn from "./components/features/learn/Learn";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
 
       <Route element={<AuthenticatedRoutes />}>
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/learn" element={<Learn />} />
       </Route>
     </Routes>
   );

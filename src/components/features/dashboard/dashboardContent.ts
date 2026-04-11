@@ -1,5 +1,16 @@
 import type { PlChallengeCardProps } from "../../common/PlChallengeCard";
 
+export type DashboardStatItem = {
+  label: string;
+  valueTone?: "default" | "warn" | "primary";
+};
+
+export type ContinueProgress = {
+  eyebrow: string;
+  title: string;
+  progressPercent: number;
+};
+
 export function getTimeGreeting(): string {
   const h = new Date().getHours();
   if (h < 12) return "Good morning";
@@ -7,24 +18,11 @@ export function getTimeGreeting(): string {
   return "Good evening";
 }
 
-export type DashboardStatItem = {
-  label: string;
-  value: string;
-  valueTone?: "default" | "warn" | "primary";
-};
-
 export const DASHBOARD_STATS: readonly DashboardStatItem[] = [
-  { label: "Total XP", value: "1,240", valueTone: "default" },
-  { label: "Challenges Done", value: "12 / 36", valueTone: "default" },
-  { label: "Current Streak", value: "7 days", valueTone: "warn" },
-  { label: "Global Rank", value: "#42", valueTone: "primary" },
+  { label: "Total XP", valueTone: "default" },
+  { label: "Challenges Done", valueTone: "default" },
+  { label: "Current Streak", valueTone: "warn" },
 ];
-
-export type ContinueProgress = {
-  eyebrow: string;
-  title: string;
-  progressPercent: number;
-};
 
 export const DASHBOARD_CONTINUE: ContinueProgress = {
   eyebrow: "Continue where you left off",

@@ -72,7 +72,7 @@ function AuthForm({ children }: AuthFormProps) {
     mutationFn: login,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["auth-user"] });
-      navigate("/learn", { replace: true });
+      navigate("/dashboard", { replace: true });
     },
   });
 

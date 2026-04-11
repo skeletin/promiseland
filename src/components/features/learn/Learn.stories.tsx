@@ -3,32 +3,32 @@ import { AuthContext } from "@/contexts/AuthContext";
 import layoutStyles from "@/components/navigation/AuthenticatedLayout.module.css";
 import SideBar from "@/components/navigation/SideBar";
 import { MemoryRouter } from "react-router-dom";
-import Dashboard from "./Dashboard";
+import Learn from "./Learn";
 
 const mockUser: User = {
   id: "00000000-0000-4000-8000-000000000001",
-  email: "julian@example.com",
-  username: "Julian",
+  email: "learner@example.com",
+  username: "Alex",
   userProfile: {
     id: "00000000-0000-4000-8000-000000000002",
-    displayName: "Julian",
+    displayName: "Alex",
     avatarUrl: null,
     experienceLevel: "intermediate",
-    dayStreak: 0,
-    level: 0,
-    xp: 0,
+    dayStreak: 3,
+    level: 5,
+    xp: 2400,
   },
 };
 
 const meta = {
-  title: "Features/Dashboard",
-  component: Dashboard,
+  title: "Features/Learn",
+  component: Learn,
   parameters: {
     layout: "fullscreen",
   },
   decorators: [
     (Story) => (
-      <MemoryRouter initialEntries={["/dashboard"]}>
+      <MemoryRouter initialEntries={["/learn"]}>
         <AuthContext.Provider
           value={{
             user: mockUser,
@@ -46,9 +46,9 @@ const meta = {
       </MemoryRouter>
     ),
   ],
-} satisfies Meta<typeof Dashboard>;
+} satisfies Meta<typeof Learn>;
 
 export default meta;
-type Story = StoryObj<typeof Dashboard>;
+type Story = StoryObj<typeof Learn>;
 
-export const Default: Story = {};
+export const LearningPath: Story = {};

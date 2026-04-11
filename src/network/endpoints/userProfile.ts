@@ -1,11 +1,11 @@
 import { API } from "@/constants";
 import ServerError from "@/errors/serverError";
-import UnauthorizedError from "@/errors/unauthorizedErro";
+import UnauthorizedError from "@/errors/unauthorizedError";
 import ValidationError from "@/errors/validationError";
 import { decamelizeKeys } from "humps";
 
 export default {
-  async update(userProfile: UserProfile): Promise<void> {
+  async update(userProfile: UpdateUserProfile): Promise<void> {
     const res = await fetch(API + "/user_profiles", {
       method: "PATCH",
       headers: {

@@ -6,4 +6,6 @@ type AuthContextData = {
   isLoading: boolean;
 };
 
-export const AuthContext = createContext<AuthContextData | null>(null);
+export const AuthContext = createContext<AuthContextData>(
+  {} as AuthContextData,
+);
